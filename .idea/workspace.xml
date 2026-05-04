@@ -22,7 +22,8 @@
       <change afterPath="$PROJECT_DIR$/../Projeto_Junior/Desafio/src/main/java/org/desafio/model/Funcionario.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Projeto_Junior/Desafio/src/main/java/org/desafio/model/Pessoa.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../Projeto_Junior/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.env.production" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RAILWAY_ENV_GUIDE.md" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../taskfocus-frontend/README.md" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../taskfocus-frontend/docs/ARCHITECTURE.md" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../taskfocus-frontend/docs/ARCHITECTURE.puml" afterDir="false" />
@@ -49,6 +50,9 @@
       <change beforePath="$PROJECT_DIR$/../banco_digital/bank_digital/src/conta.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../banco_digital/bank_digital/src/contaCorrente.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../banco_digital/bank_digital/src/contaPoupanca.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/demo/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +65,7 @@
     </persistenceIdMap>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
