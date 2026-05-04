@@ -5,8 +5,11 @@ COPY pom.xml mvnw ./
 COPY .mvn .mvn
 COPY src src
 RUN mvn -B -DskipTests clean package
-# Verifica e copia o JAR gerado para um caminho fixo para facilitar o COPY no estágio final
-RUN if [ -f target/demo-0.0.1-SNAPSHOT.jar ]; then cp target/demo-0.0.1-SNAPSHOT.jar /app/app.jar; else echo "ERROR: jar not found in target/"; ls -la target || true; exit 1; fi
+# Verifica e copia o JAR gerado para um caminho fixo para facilitar o COPY no estágio final.
+# Usa find para localizar qualquer artefato "*-SNAPSHOT.jar" dentro de target (mais robusto
+# caso o POM altere o diretório de saída ou o nome do artefato).
+RUN JAR_PATH=$(find target -maxdepth 3 -type f -name "*-SNAPSHOT.jar" | head -n 1) \
+	&& if [ -n "$JAR_PATH" ]; then cp "$JAR_PATH" /app/app.jar; else echo "ERROR: jar not found in target/ (searched for '*-SNAPSHOT.jar')"; ls -la target || true; exit 1; fi
 
 FROM eclipse-temurin:17-jre
 WORKDIR /app
