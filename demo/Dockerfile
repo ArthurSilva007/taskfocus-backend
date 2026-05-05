@@ -1,18 +1,18 @@
-FROM eclipse-temurin:17-jre
-
-# Runtime-only Dockerfile: expects the application JAR to be present under
-# `target/` in the build context. This keeps the image small and makes CI
-# responsibility to build the artifact (recommended).
+# Estágio 1: Build
+FROM maven:3.9.6-eclipse-temurin-17 AS build
 WORKDIR /app
+# Copia o pom.xml e as fontes
+COPY pom.xml .
+COPY src ./src
+# Executa o build do Maven para gerar o JAR
+RUN mvn clean package -DskipTests
 
-# Allow override of the jar filename at build time. Default matches Maven artifactId/version.
-ARG JAR_FILE=demo-0.0.1-SNAPSHOT.jar
-COPY target/${JAR_FILE} app.jar
-
-COPY docker-entrypoint.sh /app/docker-entrypoint.sh
-RUN chmod +x /app/docker-entrypoint.sh
-
+# Estágio 2: Execução
+FROM eclipse-temurin:17-jdk-alpine
+WORKDIR /app
+# Copia o JAR gerado no estágio anterior (usando wildcard para evitar erro de nome)
+COPY --from=build /app/target/*.jar app.jar
+# Expoe a porta (você está usando 8084 no seu properties)
 EXPOSE 8084
-ENV JAVA_OPTS=""
-ENTRYPOINT ["/app/docker-entrypoint.sh"]
-
+# Comando para rodar a aplicação
+ENTRYPOINT ["java", "-jar", "app.jar"]
