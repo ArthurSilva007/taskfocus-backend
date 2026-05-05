@@ -203,3 +203,6 @@ taskfocus-backend/
 │   │   └── email/
 │   └── resources/
 └── target/               ✅ Compilado
+
+
+
